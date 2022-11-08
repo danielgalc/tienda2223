@@ -10,6 +10,6 @@ CREATE TABLE articulos  (
 -- Carga inicial de datos de prueba;
 
 INSERT INTO articulos (codigo, descripcion, precio)
-    VALUES ('1238123710318', 'Yogur piña', 200.50),
-           ('9482934923894', 'Tigreton', 50.10),
-           ('8346197462349', 'Disco duro SSD 500 GB', 150.30);
+    VALUES ('101', 'Yogur piña', 200.50),
+           ('202', 'Tigreton', 50.10),
+           ('303', 'Disco duro SSD 500 GB', 150.30);
