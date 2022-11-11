@@ -1,6 +1,5 @@
 <?php
 
-function conectar()
-{
-    return new PDO('pgsql:host=localhost;dbname=tienda', 'tienda', 'tienda');
+function volver_admin(){
+    header("Location: /admin/");
 }
