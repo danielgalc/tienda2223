@@ -7,9 +7,24 @@ CREATE TABLE articulos  (
     precio      numeric(7, 2) NOT NULL
 );
 
+DROP TABLE IF EXISTS usuarios CASCADE;
+
+CREATE TABLE usuarios (
+    id         bigserial    PRIMARY KEY,
+    usuario    varchar(255) NOT NULL UNIQUE,
+    password   varchar(255) NOT NULL
+);
+
 -- Carga inicial de datos de prueba;
 
 INSERT INTO articulos (codigo, descripcion, precio)
-    VALUES ('101', 'Yogur piña', 200.50),
-           ('202', 'Tigreton', 50.10),
-           ('303', 'Disco duro SSD 500 GB', 150.30);
+     VALUES ('18273892389', 'Yogur piña', 200.50),
+            ('83745828273', 'Tigretón', 50.10),
+            ('51736128495', 'Disco duro SSD 500 GB', 150.30),
+            ('83746828273', 'Tigretón', 50.10),
+            ('51786128435', 'Disco duro SSD 500 GB', 150.30),
+            ('83745228673', 'Tigretón', 50.10),
+            ('51786198495', 'Disco duro SSD 500 GB', 150.30);
+
+INSERT INTO usuarios (usuario, password)
+     VALUES ('prueba', crypt('prueba', gen_salt('bf', 10)));
