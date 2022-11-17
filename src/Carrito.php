@@ -41,4 +41,24 @@ class Carrito
     {
         return $this->articulos;
     }
+
+    public function articulos(?PDO $pdo = null): array
+    {
+        $pdo = $pdo ?? conectar();
+        $marcadores = implode(',', array_fill(0, count($this->getArticulos()), '?'));
+        $sent = $pdo->prepare("SELECT *
+                                 FROM articulos
+                                WHERE id in ($marcadores)");
+        $sent->execute(array_keys($this->getArticulos()));
+
+        $res = [];
+
+        foreach ($sent as $fila) {
+            $articulo = new Articulo($fila);
+            $id = $articulo->id;
+            $res[$id] = [$articulo, $this->getArticulos()[$id]];
+        }
+
+        return $res;
+    }
 }
