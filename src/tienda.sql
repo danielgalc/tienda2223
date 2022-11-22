@@ -27,4 +27,5 @@ INSERT INTO articulos (codigo, descripcion, precio)
             ('51786198495', 'Disco duro SSD 500 GB', 150.30);
 
 INSERT INTO usuarios (usuario, password)
-     VALUES ('prueba', crypt('prueba', gen_salt('bf', 10)));
+     VALUES ('prueba', crypt('prueba', gen_salt('bf', 10))),
+            ('admin', crypt('admin', gen_salt('bf', 10)));

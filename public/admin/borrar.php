@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require '../../src/admin-auxiliar.php';
 require '../../src/auxiliar.php';
+
 
 $id = obtener_post('id');
 
