@@ -14,13 +14,13 @@
     $username = obtener_post('username');
     $psswd = obtener_post('psswd');
 
-    $$clases_label = '';
+    $clases_label = '';
     $clases_input = '';
     $error = false;
 
 
     if(isset($username, $psswd)){
-        if(!$usuario = Usuario::comprobarRegistro($username, $psswd)) {
+        if($usuario = Usuario::comprobarRegistro($username, $psswd)) {
             $_SESSION['login'] = serialize($usuario);
             return volver();
         } else {
