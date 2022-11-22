@@ -54,4 +54,20 @@ class Usuario
 
         return password_verify($password, $fila['password']) ? new static ($fila) : false;
     }
+
+    public static function comprobarRegistro($username, $psswd,?PDO $pdo = null)
+    {
+        $pdo = $pdo ?? conectar();
+        $sent = $pdo->prepare('SELECT * FROM usuarios WHERE usuario =:username');
+        $sent->execute([':username'=>$username]);
+        $fila = $sent->fetch(PDO::FETCH_ASSOC);
+
+        if ($fila !== false){
+            return true;
+        }
+
+        $pdo->query("INSERT INTO usuarios (usuario, password)
+                          VALUES ('$username', crypt('$psswd', gen_salt('bf', 10)))");
+         
+    }
 }

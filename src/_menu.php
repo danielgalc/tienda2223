@@ -12,6 +12,7 @@
                 </button>
             <?php else : ?>
                 <a href="/login.php" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+                <a href="/signin.php" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Sign In</a>
             <?php endif ?>
             <!-- Dropdown menu -->
             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
