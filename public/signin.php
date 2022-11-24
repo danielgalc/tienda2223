@@ -20,7 +20,7 @@
 
 
     if(isset($username, $psswd)){
-        if($usuario = Usuario::comprobarRegistro($username, $psswd)) {
+        if($usuario = \Tablas\Usuario::comprobarRegistro($username, $psswd)) {
             $_SESSION['login'] = serialize($usuario);
             $_SESSION['exito'] = 'Usuario registrado correctamente.';
             return volver();
