@@ -21,7 +21,7 @@
     <?php
     require '../../src/auxiliar.php';
 
-    if ($usuario = Usuario::logueado()){
+    if ($usuario = \Tablas\Usuario::logueado()){
         if(!$usuario->es_admin()) {
             $_SESSION['error'] = 'Acceso no autorizado.';
             return volver();
@@ -34,8 +34,8 @@
     $sent = $pdo->query("SELECT * FROM articulos ORDER BY codigo");
     ?>
     <div class="container mx-auto">
-        <?php require '../src/_menu.php' ?>
-        <?php require '../src/_alerts.php' ?>
+        <?php require '../../src/_menu.php' ?>
+        <?php require '../../src/_alerts.php' ?>
         <div class="overflow-x-auto relative mt-4">
             <table class="mx-auto text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
