@@ -22,6 +22,7 @@
     if(isset($username, $psswd)){
         if($usuario = Usuario::comprobarRegistro($username, $psswd)) {
             $_SESSION['login'] = serialize($usuario);
+            $_SESSION['exito'] = 'Usuario registrado correctamente.';
             return volver();
         } else {
             $error = true;
@@ -43,7 +44,7 @@
                 </div>
                 <div class="mb-6">
                     <label for="psswd" class="block mb-2 text-sm font-medium <?= $clases_label ?>">Contraseña</label>
-                    <input type="psswd" name="psswd" id="psswd" class="border text-sm rounded-lg block w-full p-2.5  <?= $clases_input ?>">
+                    <input type="password" name="psswd" id="psswd" class="border text-sm rounded-lg block w-full p-2.5  <?= $clases_input ?>">
                 </div>
                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrarse</button>
             </form>
