@@ -1,6 +1,9 @@
 <?php
+namespace Generico;
 
-class Linea
+use Tablas\Articulo;
+
+class Linea extends Modelo
 {
     private Articulo $articulo;
     private int $cantidad;
