@@ -1,12 +1,13 @@
 <?php
-namespace Generico;
 
-use Tablas\Articulo;
+namespace App\Generico;
+
+use App\Tablas\Articulo;
 use ValueError;
 
 class Carrito extends Modelo
 {
-    public array $lineas;
+    private array $lineas;
 
     public function __construct()
     {
@@ -15,11 +16,11 @@ class Carrito extends Modelo
 
     public function insertar($id)
     {
-        if (!$articulo = Articulo::obtener($id)){
+        if (!($articulo = Articulo::obtener($id))) {
             throw new ValueError('El artículo no existe.');
         }
 
-        if(isset($this->lineas[$id])){
+        if (isset($this->lineas[$id])) {
             $this->lineas[$id]->incrCantidad();
         } else {
             $this->lineas[$id] = new Linea($articulo);
@@ -28,13 +29,13 @@ class Carrito extends Modelo
 
     public function eliminar($id)
     {
-        if (isset($this->lineas[$id])){
+        if (isset($this->lineas[$id])) {
             $this->lineas[$id]->decrCantidad();
-            if($this->lineass[$id]->getCantidad() == 0){
+            if ($this->lineas[$id]->getCantidad() == 0) {
                 unset($this->lineas[$id]);
-            }            
+            }
         } else {
-            throw new ValueError('Artículo inexistente en el carrito.');
+            throw new ValueError('Artículo inexistente en el carrito');
         }
     }
 

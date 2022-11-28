@@ -1,40 +1,40 @@
 <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="https://flowbite.com/" class="flex items-center">
+        <a href="/" class="flex items-center">
             <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
             <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
         </a>
         <div class="flex items-center md:order-2">
-            <?php if (\Tablas\Usuario::esta_logueado()) : ?>
+            <?php if (\App\Tablas\Usuario::esta_logueado()) : ?>
                 <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 h-8 rounded-full" src="/img/profile-picture-3.jpg" alt="user photo">
                 </button>
             <?php else : ?>
                 <a href="/login.php" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Login</a>
-                <a href="/signin.php" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Sign In</a>
+                <a href="/signin.php" class="text-sm font-medium text-blue-600 dark:text-blue-500 hover:underline">Sign in</a>
             <?php endif ?>
             <!-- Dropdown menu -->
             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-            <?php if (\Tablas\Usuario::esta_logueado()): ?>
+                <?php if (\App\Tablas\Usuario::esta_logueado()): ?>
                     <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white"><?= hh(\Tablas\Usuario::logueado()->usuario) ?></span>
+                        <span class="block text-sm text-gray-900 dark:text-white"><?= hh(\App\Tablas\Usuario::logueado()->usuario) ?></span>
                     </div>
-            <?php endif ?>
-                    <ul class="py-1" aria-labelledby="user-menu-button">
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                        </li>
-                        <li>
-                            <a href="/logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Salir</a>
-                        </li>
-                    </ul>
+                <?php endif ?>
+                <ul class="py-1" aria-labelledby="user-menu-button">
+                    <li>
+                        <a href="/dashboard.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                    </li>
+                    <li>
+                        <a href="/logout.php" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Salir</a>
+                    </li>
+                </ul>
             </div>
             <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
@@ -64,5 +64,3 @@
         </div>
     </div>
 </nav>
-<script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />

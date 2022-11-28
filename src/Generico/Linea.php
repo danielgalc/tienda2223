@@ -1,7 +1,8 @@
 <?php
-namespace Generico;
 
-use Tablas\Articulo;
+namespace App\Generico;
+
+use App\Tablas\Articulo;
 
 class Linea extends Modelo
 {
@@ -44,4 +45,3 @@ class Linea extends Modelo
         $this->cantidad--;
     }
 }
-

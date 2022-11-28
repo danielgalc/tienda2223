@@ -1,5 +1,5 @@
 <?php
-namespace Tablas;
+namespace App\Tablas;
 
 use PDO;
 

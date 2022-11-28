@@ -1,20 +1,24 @@
 <?php
 
-use Generico\Carrito;
+// spl_autoload_register(function ($class) {
+//     require_once str_replace('\\', '/', $class) . '.php';
+// });
 
-spl_autoload_register(function ($class){
-    require_once str_replace('\\', '/', $class) . ".php";
-});
-
+require '../vendor/autoload.php';
 
 function conectar()
 {
-    return new PDO('pgsql:host=localhost,dbname=tienda', 'tienda', 'tienda');
+    return new \PDO('pgsql:host=localhost,dbname=tienda', 'tienda', 'tienda');
 }
 
 function hh($x)
 {
     return htmlspecialchars($x ?? '', ENT_QUOTES | ENT_SUBSTITUTE);
+}
+
+function dinero($s)
+{
+    return number_format($s, 2, ',', ' ') . ' €';
 }
 
 function obtener_get($par)
@@ -39,8 +43,8 @@ function volver()
 
 function carrito()
 {
-    if(!isset($_SESSION['carrito'])){
-        $_SESSION['carrito'] = serialize(new Carrito());
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = serialize(new \App\Generico\Carrito());
     }
 
     return $_SESSION['carrito'];
@@ -53,11 +57,12 @@ function carrito_vacio()
     return $carrito->vacio();
 }
 
-
-function volver_admin(){
+function volver_admin()
+{
     header("Location: /admin/");
 }
 
-function redirigir_login(){
+function redirigir_login()
+{
     header('Location: /login.php');
 }
